@@ -1,0 +1,36 @@
+main{
+    text-align: center;
+    border: 1px solid;
+    height: 70vh;
+    width: 30%;
+    right: 500px;
+    position: absolute;
+    top: 10vh;
+    background-color: aquamarine;
+    border-radius: 7px;
+
+}
+label{
+    font-size: 2em;
+}
+button{
+    font-size: 1.75em;
+    border-color: beige;
+    border-radius: 2px solid;
+    cursor: pointer;
+}
+
+button:hover{
+background-color: rgb(170, 203, 19);
+}
+
+#myTextBox{
+    border-radius: 7px;
+    font-size: 1.75em;
+    
+}
+#resultElement{
+    font-family: Verdana, sans-serif;
+    font-size: 2em;
+    color: red;
+}
