@@ -1,36 +1,14 @@
-const myButton = document.getElementById("myButton"); 
-const myTextBox = document.getElementById("myTextBox"); 
-const celciusToFarenheit = document.getElementById("celciusToFarenheit"); 
-const FarenheitToCelcius = document.getElementById("FarenheitToCelcius");
-const celciusToKelvin = document.getElementById("celciusToKelvin");
-const resultElement = document.getElementById("resultElement"); 
-const resetButton = document.getElementById("resetButton"); 
-
-let temp;
-let kelvin = 273;
-myButton.onclick = function convert() {
-    if (celciusToFarenheit.checked) {
-        temp = Number(myTextBox.value);
-        temp = (temp * 9/5)+32;
-        resultElement.textContent = temp.toFixed(1) + "F";
-    } else if (FarenheitToCelcius.checked) {
-        temp = Number(myTextBox.value);
-        temp = 5/9*(temp -32);
-         resultElement.textContent = temp.toFixed(1) + "C"
-    } else if (celciusToKelvin.checked) {
-        temp = Number(myTextBox.value);
-        temp = temp + kelvin;
-         resultElement.textContent = temp.toFixed(1) + "C"
-    }
-     else {
-        resultElement.textContent = "select a unit";
-    }
+//DIGITAL CLOCK PROGRAM
+function updateClock() {
+    const now = new Date();
+    let hours =now.getHours();
+    const meridiem = hours >=12? "PM" : "AM";
+    hours = hours % 12 || 12;
+    hours = hours.toString().padStart(2,0)
+    const minutes =now.getMinutes().toString().padStart(2,0);
+    const seconds =now.getSeconds().toString().padStart(2,0);
+    const timeString = `${hours}:${minutes}:${seconds} ${meridiem}`;
+    document.getElementById("clock").textContent = timeString;
 }
-resetButton.onclick = function reset() {
-    temp = Number(myTextBox.value);
-    resultElement.textContent = temp;
-}
-
-
-
-
+updateClock();
+setInterval(updateClock,1000);
